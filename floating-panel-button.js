@@ -10,7 +10,7 @@ created by MINIX-BTV
     // ─── Constants ────────────────────────────────────────────────────────────
 
     const SELECTOR_TOOLBAR        = '.toolbar.toolbar-group';
-    const SELECTOR_ACTIVE_PANEL   = '.button-toolbar-webpanel.active button[name^="WEBPANEL_"]';
+    const SELECTOR_ACTIVE_PANEL   = '.button-toolbar-webpanel.active button[data-name^="WEBPANEL_"]';
     const ID_WRAP                 = 'vivaldi-float-toggle-wrap';
     const ID_BTN                  = 'vivaldi-float-toggle-btn';
     const PREFS_KEY               = 'vivaldi.panels.web.elements';
@@ -74,7 +74,7 @@ created by MINIX-BTV
     // ─── Panel detection (formerly script 2) ─────────────────────────────────
 
     function getActiveWebPanelId() {
-        return document.querySelector(SELECTOR_ACTIVE_PANEL)?.name ?? null;
+        return document.querySelector(SELECTOR_ACTIVE_PANEL)?.getAttribute("data-name") ?? null;
     }
 
     async function notifyIfPanelChanged() {
